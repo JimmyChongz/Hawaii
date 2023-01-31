@@ -15,9 +15,15 @@ h6 {
 }
 
 header {
+    position: sticky;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    top: 0;
+    z-index: 2;
+    background-color: white;
+    box-shadow: 3px 3px 5px 2px rgb(107, 107, 107);
+
 
     div.logo {
         display: flex;
@@ -44,6 +50,9 @@ header {
                     color: #09777D;
                     text-decoration: none;
                     font-size: 1.5rem;
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
@@ -74,12 +83,16 @@ main {
 
         button.start {
             background-color: #83E7E5;
-            color: white;
+            color: black;
             border: none;
             border-radius: 1.25rem;
             font-size: 2rem;
             padding: 1.5rem 2rem;
             cursor: pointer;
+
+            &:hover {
+                animation: cross 0.5s forwards;
+            }
         }
 
         div.filter {
@@ -114,12 +127,23 @@ main {
                 align-items: center;
                 justify-content: space-between;
                 flex: 1 1 300px;
-                padding: 1rem;
+                padding: 2rem;
+
+                div.image-container {
+                    overflow: hidden;
+                    width: 20vw;
+                    border-radius: 50%;
+                    margin: 1rem 0rem;
+                }
 
                 img {
                     width: 20vw;
                     border-radius: 50%;
-                    margin: 1rem 0rem;
+                    transition: transform 0.75s;
+                }
+
+                img:hover {
+                    transform: scale(1.2);
                 }
 
                 h2 {
@@ -154,7 +178,7 @@ footer {
     div.footer {
         div.logo {
             display: flex;
-            margin: 2rem 0rem;
+            margin: 4rem 0rem;
             align-items: center;
 
             img {
@@ -166,6 +190,7 @@ footer {
     nav {
         width: 50%;
         text-align: center;
+
         ul {
             display: flex;
             list-style-type: none;
@@ -176,6 +201,9 @@ footer {
                     text-decoration: none;
                     color: #09777D;
                     font-size: 1.5rem;
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
@@ -185,14 +213,59 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 2rem 0rem;
+        margin: 4rem 0rem;
 
         a {
             img {
                 margin: 0rem 4vw;
                 width: 6vw;
+                transition: transform 0.25s;
+                &:hover {
+                    transform: scale(1.2);
+                }
             }
         }
+    }
+}
+
+/* scroll bar setting */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #09777D;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #5a9998;
+}
+
+@keyframes cross {
+    from {
+        background-color: #83E7E5;
+        color: black;
+        border: none;
+        border-radius: 1.25rem;
+        font-size: 2rem;
+        padding: 1.5rem 2rem;
+    }
+
+    to {
+        background-color: aqua;
+        color: white;
+        padding: 2rem 2.5rem;
+        border-radius: 1.25rem;
+        font-size: 2rem;
+        border: none;
+        margin-top: 2rem;
     }
 }
 
@@ -210,8 +283,21 @@ footer {
         section.second {
             section.cards {
                 div.card {
+                    div.image-container {
+                        overflow: hidden;
+                        width: 45vw;
+                        border-radius: 50%;
+                        margin: 1rem 0rem;
+                    }
+    
                     img {
                         width: 45vw;
+                        border-radius: 50%;
+                        transition: transform 0.75s;
+                    }
+    
+                    img:hover {
+                        transform: scale(1.2);
                     }
                 }
             }
@@ -232,6 +318,7 @@ footer {
             ul {
                 display: flex;
                 flex-direction: column;
+
                 li {
                     margin: 1rem 0rem;
                 }

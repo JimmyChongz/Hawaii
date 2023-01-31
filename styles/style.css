@@ -15,9 +15,15 @@ h6 {
 }
 
 header {
+  position: -webkit-sticky;
+  position: sticky;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+  box-shadow: 3px 3px 5px 2px rgb(107, 107, 107);
 }
 header div.logo {
   display: flex;
@@ -42,6 +48,9 @@ header nav ul li a {
   text-decoration: none;
   font-size: 1.5rem;
 }
+header nav ul li a:hover {
+  text-decoration: underline;
+}
 
 main section.backImg {
   min-height: 90vh;
@@ -64,12 +73,16 @@ main section.backImg h3 {
 }
 main section.backImg button.start {
   background-color: #83E7E5;
-  color: white;
+  color: black;
   border: none;
   border-radius: 1.25rem;
   font-size: 2rem;
   padding: 1.5rem 2rem;
   cursor: pointer;
+}
+main section.backImg button.start:hover {
+  -webkit-animation: cross 0.5s forwards;
+          animation: cross 0.5s forwards;
 }
 main section.backImg div.filter {
   position: absolute;
@@ -100,12 +113,21 @@ main section.second section.cards div.card {
   align-items: center;
   justify-content: space-between;
   flex: 1 1 300px;
-  padding: 1rem;
+  padding: 2rem;
+}
+main section.second section.cards div.card div.image-container {
+  overflow: hidden;
+  width: 20vw;
+  border-radius: 50%;
+  margin: 1rem 0rem;
 }
 main section.second section.cards div.card img {
   width: 20vw;
   border-radius: 50%;
-  margin: 1rem 0rem;
+  transition: transform 0.75s;
+}
+main section.second section.cards div.card img:hover {
+  transform: scale(1.2);
 }
 main section.second section.cards div.card h2 {
   font-size: 2rem;
@@ -132,7 +154,7 @@ footer {
 }
 footer div.footer div.logo {
   display: flex;
-  margin: 2rem 0rem;
+  margin: 4rem 0rem;
   align-items: center;
 }
 footer div.footer div.logo img {
@@ -152,24 +174,101 @@ footer nav ul li a {
   color: #09777D;
   font-size: 1.5rem;
 }
+footer nav ul li a:hover {
+  text-decoration: underline;
+}
 footer div.icons {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem 0rem;
+  margin: 4rem 0rem;
 }
 footer div.icons a img {
   margin: 0rem 4vw;
   width: 6vw;
+  transition: transform 0.25s;
+}
+footer div.icons a img:hover {
+  transform: scale(1.2);
 }
 
+/* scroll bar setting */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #09777D;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #5a9998;
+}
+
+@-webkit-keyframes cross {
+  from {
+    background-color: #83E7E5;
+    color: black;
+    border: none;
+    border-radius: 1.25rem;
+    font-size: 2rem;
+    padding: 1.5rem 2rem;
+  }
+  to {
+    background-color: aqua;
+    color: white;
+    padding: 2rem 2.5rem;
+    border-radius: 1.25rem;
+    font-size: 2rem;
+    border: none;
+    margin-top: 2rem;
+  }
+}
+
+@keyframes cross {
+  from {
+    background-color: #83E7E5;
+    color: black;
+    border: none;
+    border-radius: 1.25rem;
+    font-size: 2rem;
+    padding: 1.5rem 2rem;
+  }
+  to {
+    background-color: aqua;
+    color: white;
+    padding: 2rem 2.5rem;
+    border-radius: 1.25rem;
+    font-size: 2rem;
+    border: none;
+    margin-top: 2rem;
+  }
+}
 @media screen and (max-width: 970px) {
   header div.logo img {
     width: 13vw;
     height: 13vw;
   }
+  main section.second section.cards div.card div.image-container {
+    overflow: hidden;
+    width: 45vw;
+    border-radius: 50%;
+    margin: 1rem 0rem;
+  }
   main section.second section.cards div.card img {
     width: 45vw;
+    border-radius: 50%;
+    transition: transform 0.75s;
+  }
+  main section.second section.cards div.card img:hover {
+    transform: scale(1.2);
   }
   footer div.footer div.logo img {
     width: 13vw;
